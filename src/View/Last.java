@@ -34,7 +34,7 @@ public class Last extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jButton_LOGOUT = new javax.swing.JButton();
         jButton_DASHBOARD = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel_Change = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabelClose = new javax.swing.JLabel();
@@ -74,9 +74,9 @@ public class Last extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setForeground(java.awt.Color.white);
-        jLabel4.setText("Your change is");
+        jLabel_Change.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel_Change.setForeground(java.awt.Color.white);
+        jLabel_Change.setText("Your change is");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setForeground(java.awt.Color.white);
@@ -94,7 +94,7 @@ public class Last extends javax.swing.JFrame {
                 .addGap(92, 92, 92))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(151, 151, 151)
-                .addComponent(jLabel4)
+                .addComponent(jLabel_Change)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
@@ -106,7 +106,7 @@ public class Last extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap(176, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel_Change, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(131, 131, 131)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_DASHBOARD, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,7 +194,7 @@ public class Last extends javax.swing.JFrame {
 
     private void jButton_DASHBOARDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_DASHBOARDMouseClicked
         this.dispose();
-        HOME_JFrame home = new HOME_JFrame();
+        UserDashboard home = new UserDashboard();
         home.setVisible(true);
         home.pack();
         home.setLocationRelativeTo(null);
@@ -253,10 +253,10 @@ public class Last extends javax.swing.JFrame {
     private javax.swing.JButton jButton_LOGOUT;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
+    public javax.swing.JLabel jLabel_Change;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables

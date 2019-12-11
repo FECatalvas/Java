@@ -19,12 +19,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author 2ndyrGroupC
  */
-public class orderMed extends javax.swing.JFrame {
+public class OrderMed extends javax.swing.JFrame {
 
     /**
      * Creates new form orderMed
      */
-    public orderMed() {
+    public OrderMed() {
         initComponents();
         this.setLocationRelativeTo(null);
 
@@ -47,12 +47,12 @@ public class orderMed extends javax.swing.JFrame {
                     rs.getString("genericName"),
                     rs.getString("brandName"),
                     rs.getString("medType"),
-                    rs.getDouble("price"),
-                    rs.getInt("qtyStock")};
+                    rs.getDouble("price")};
+                    
                 model.addRow(table);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(viewMed.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ViewMed.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -68,15 +68,15 @@ public class orderMed extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabelClose = new javax.swing.JLabel();
         jLabelMin = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel_Home = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_medicineTable = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel_Money = new javax.swing.JLabel();
         jTextField_brandName = new javax.swing.JTextField();
-        jTextField_Qty = new javax.swing.JTextField();
+        jTextField_Money = new javax.swing.JTextField();
         jButton_ORDER = new javax.swing.JButton();
         jButton_CANCEL = new javax.swing.JButton();
 
@@ -101,33 +101,39 @@ public class orderMed extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel3.setText("ORDER MEDICINE");
+        jLabel_Home.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel_Home.setIcon(new javax.swing.ImageIcon("Z:\\JAVA\\finalProject\\Java\\house.png")); // NOI18N
+        jLabel_Home.setText("ORDER MEDICINE");
+        jLabel_Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_HomeMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(19, 19, 19)
+                .addComponent(jLabel_Home)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelMin)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelClose)
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelClose)
-                    .addComponent(jLabelMin))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelClose)
+                        .addComponent(jLabelMin))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel_Home)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(34, 49, 63));
@@ -135,25 +141,25 @@ public class orderMed extends javax.swing.JFrame {
         jTable_medicineTable.setBackground(new java.awt.Color(232, 236, 241));
         jTable_medicineTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Classification", "Generic Name", "Brand Name", "Medicine Type", "Price", "Quantity Stock"
+                "ID", "Classification", "Generic Name", "Brand Name", "Medicine Type", "Price"
             }
         ));
         jScrollPane1.setViewportView(jTable_medicineTable);
@@ -162,9 +168,9 @@ public class orderMed extends javax.swing.JFrame {
         jLabel1.setForeground(java.awt.Color.white);
         jLabel1.setText("Brand Name:");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setForeground(java.awt.Color.white);
-        jLabel2.setText("Quantity:");
+        jLabel_Money.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel_Money.setForeground(java.awt.Color.white);
+        jLabel_Money.setText("Money:");
 
         jTextField_brandName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,9 +178,9 @@ public class orderMed extends javax.swing.JFrame {
             }
         });
 
-        jTextField_Qty.addActionListener(new java.awt.event.ActionListener() {
+        jTextField_Money.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_QtyActionPerformed(evt);
+                jTextField_MoneyActionPerformed(evt);
             }
         });
 
@@ -211,56 +217,59 @@ public class orderMed extends javax.swing.JFrame {
                         .addComponent(jScrollPane1))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(66, 66, 66)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(30, 30, 30)
-                                .addComponent(jTextField_brandName, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton_CANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(60, 60, 60)
-                                .addComponent(jTextField_Qty, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton_ORDER, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(49, 49, 49)))
+                        .addComponent(jLabel1)
+                        .addGap(30, 30, 30)
+                        .addComponent(jTextField_brandName, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE)
+                        .addComponent(jLabel_Money)
+                        .addGap(60, 60, 60)
+                        .addComponent(jTextField_Money, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(374, 374, 374)
+                        .addComponent(jButton_CANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(143, 143, 143)
+                        .addComponent(jButton_ORDER, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(23, 23, 23)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField_Qty)
+                    .addComponent(jLabel_Money)
+                    .addComponent(jTextField_Money)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextField_brandName)
                         .addComponent(jLabel1)))
-                .addGap(77, 77, 77)
+                .addGap(68, 68, 68)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_CANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_ORDER, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(105, 105, 105))
+                    .addComponent(jButton_ORDER, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_CANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(100, 100, 100)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -278,13 +287,13 @@ public class orderMed extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_brandNameActionPerformed
 
-    private void jTextField_QtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_QtyActionPerformed
+    private void jTextField_MoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_MoneyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_QtyActionPerformed
+    }//GEN-LAST:event_jTextField_MoneyActionPerformed
 
     private void jButton_CANCELMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_CANCELMouseClicked
         this.dispose();
-        HOME_JFrame home = new HOME_JFrame();
+        UserDashboard home = new UserDashboard();
         home.setVisible(true);
         home.pack();
         home.setLocationRelativeTo(null);
@@ -295,15 +304,16 @@ public class orderMed extends javax.swing.JFrame {
         PreparedStatement ps;
         ResultSet rs;
         String brandName = jTextField_brandName.getText();
-//        String quantity = jTextField_Qty.getText();
+        String money = jTextField_Money.getText();
+        
 
-        String query = "SELECT * FROM `medicine` WHERE `brandName` =?";
+        String query = "SELECT * FROM `medicine` WHERE `brandName` =? AND `price` = ?";
 
         try {
             ps = MyConnection.getConnection().prepareStatement(query);
 
             ps.setString(1, brandName);
-//            ps.setString(2, quantity);
+            ps.setString(2, money);
 
             rs = ps.executeQuery();
 
@@ -333,7 +343,23 @@ public class orderMed extends javax.swing.JFrame {
         last.setVisible(true);
         last.pack();
         last.setLocationRelativeTo(null);
+        last.setExtendedState(MAXIMIZED_BOTH);
+//        last.jLabel_Change.setText("Your change is<" + );
+        
+        
+        
     }//GEN-LAST:event_jButton_ORDERMouseClicked
+
+    private void jLabel_HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_HomeMouseClicked
+        AdminDashboard dashboard =  new AdminDashboard ();
+        dashboard.setVisible(true);
+        dashboard.pack();
+        dashboard.setLocationRelativeTo(null);
+        
+        dashboard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+        
+    }//GEN-LAST:event_jLabel_HomeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -352,20 +378,21 @@ public class orderMed extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(orderMed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrderMed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(orderMed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrderMed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(orderMed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrderMed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(orderMed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrderMed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new orderMed().setVisible(true);
+                new OrderMed().setVisible(true);
             }
         });
     }
@@ -374,16 +401,16 @@ public class orderMed extends javax.swing.JFrame {
     private javax.swing.JButton jButton_CANCEL;
     private javax.swing.JButton jButton_ORDER;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
+    private javax.swing.JLabel jLabel_Home;
+    private javax.swing.JLabel jLabel_Money;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable_medicineTable;
-    private javax.swing.JTextField jTextField_Qty;
+    private javax.swing.JTextField jTextField_Money;
     private javax.swing.JTextField jTextField_brandName;
     // End of variables declaration//GEN-END:variables
 }

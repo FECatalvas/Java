@@ -17,12 +17,12 @@ import javax.swing.JOptionPane;
  *
  * @author catalvasfa_sd2022
  */
-public class LoginForm extends javax.swing.JFrame {
+public class Admin_LogIn extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginForm
      */
-    public LoginForm() {
+    public Admin_LogIn() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -47,8 +47,6 @@ public class LoginForm extends javax.swing.JFrame {
         jPasswordField_loginPASS = new javax.swing.JPasswordField();
         jButton_CANCEL = new javax.swing.JButton();
         jButton_LOGIN = new javax.swing.JButton();
-        jLabelRegister = new javax.swing.JLabel();
-        jLabel_Admin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -142,24 +140,6 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        jLabelRegister.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabelRegister.setForeground(java.awt.Color.white);
-        jLabelRegister.setText("Click here to register.");
-        jLabelRegister.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelRegisterMouseClicked(evt);
-            }
-        });
-
-        jLabel_Admin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel_Admin.setForeground(java.awt.Color.white);
-        jLabel_Admin.setText("ADMIN");
-        jLabel_Admin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_AdminMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -180,13 +160,7 @@ public class LoginForm extends javax.swing.JFrame {
                         .addComponent(jButton_CANCEL)
                         .addGap(50, 50, 50)
                         .addComponent(jButton_LOGIN)
-                        .addGap(103, 103, 103))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabelRegister)
-                        .addGap(122, 122, 122))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel_Admin)
-                        .addGap(171, 171, 171))))
+                        .addGap(103, 103, 103))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,11 +177,7 @@ public class LoginForm extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_LOGIN, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_CANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabelRegister)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel_Admin)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -246,16 +216,6 @@ public class LoginForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jLabelMinMouseClicked
 
-    private void jLabelRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegisterMouseClicked
-        RegisterForm register = new RegisterForm();
-        register.setVisible(true);
-        register.pack();
-        register.setLocationRelativeTo(null);
-
-        register.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
-    }//GEN-LAST:event_jLabelRegisterMouseClicked
-
     private void jButton_CANCELMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_CANCELMouseClicked
         System.exit(0);
     }//GEN-LAST:event_jButton_CANCELMouseClicked
@@ -266,7 +226,7 @@ public class LoginForm extends javax.swing.JFrame {
         String username = jTextField_LoginUN.getText();
         String pass = String.valueOf(jPasswordField_loginPASS.getPassword());
         
-        String query = "SELECT * FROM `user` WHERE `username` =? AND `password`=?";
+        String query = "SELECT * FROM `admin` WHERE `username` =? AND `password`=?";
         
         try {
             ps = MyConnection.getConnection().prepareStatement(query);
@@ -278,7 +238,7 @@ public class LoginForm extends javax.swing.JFrame {
             
             if (rs.next())
            {
-                UserDashboard home = new UserDashboard ();
+                AdminDashboard home = new AdminDashboard ();
                 home.setVisible(true);
                 home.pack();
                 home.setLocationRelativeTo(null);
@@ -290,24 +250,13 @@ public class LoginForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Incorrect Username or Password"+"\nLogin Failed");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Admin_LogIn.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton_LOGINActionPerformed
 
     private void jButton_LOGINMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_LOGINMouseClicked
 
     }//GEN-LAST:event_jButton_LOGINMouseClicked
-
-    private void jLabel_AdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_AdminMouseClicked
-        Admin_LogIn admin = new Admin_LogIn ();
-        admin.setVisible (true);
-        admin.pack();
-        admin.setLocationRelativeTo(null);
-        
-        admin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
-                
-    }//GEN-LAST:event_jLabel_AdminMouseClicked
     
     
     
@@ -331,20 +280,21 @@ public class LoginForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admin_LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admin_LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admin_LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admin_LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginForm().setVisible(true);
+                new Admin_LogIn().setVisible(true);
             }
         });
     }
@@ -357,8 +307,6 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
-    private javax.swing.JLabel jLabelRegister;
-    private javax.swing.JLabel jLabel_Admin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField_loginPASS;
