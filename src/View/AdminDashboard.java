@@ -40,9 +40,11 @@ public class AdminDashboard extends javax.swing.JFrame {
         jLabel_LOGOUT = new javax.swing.JLabel();
         jButton_RemoveMed = new javax.swing.JButton();
         jButton_AddMed = new javax.swing.JButton();
+        jButton_UpdateMed = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(241, 169, 160));
 
@@ -90,6 +92,9 @@ public class AdminDashboard extends javax.swing.JFrame {
                         .addComponent(jLabel1)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 490, 60);
 
         jPanel2.setBackground(new java.awt.Color(34, 49, 63));
 
@@ -158,6 +163,20 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
 
+        jButton_UpdateMed.setBackground(new java.awt.Color(34, 167, 240));
+        jButton_UpdateMed.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton_UpdateMed.setText("UPDATE MEDICINE");
+        jButton_UpdateMed.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_UpdateMedMouseClicked(evt);
+            }
+        });
+        jButton_UpdateMed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_UpdateMedActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -167,13 +186,17 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton_AddMed, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_RemoveMed))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton_OrderMed, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(jButton_ViewMed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_OrderMed, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_ViewMed, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton_UpdateMed, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(137, 137, 137))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(173, 173, 173)
+                .addGap(177, 177, 177)
                 .addComponent(jLabel_LOGOUT)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -188,25 +211,15 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_ViewMed, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_AddMed, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
+                .addComponent(jButton_UpdateMed, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addComponent(jLabel_LOGOUT)
-                .addGap(32, 32, 32))
+                .addGap(48, 48, 48))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 60, 490, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -280,6 +293,20 @@ public class AdminDashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_AddMedActionPerformed
 
+    private void jButton_UpdateMedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_UpdateMedMouseClicked
+        RemoveMed removemed = new RemoveMed ();
+        removemed.setVisible(true);
+        removemed.pack();
+        removemed.setLocationRelativeTo(null);
+        
+        removemed.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_jButton_UpdateMedMouseClicked
+
+    private void jButton_UpdateMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_UpdateMedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_UpdateMedActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -320,6 +347,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JButton jButton_AddMed;
     private javax.swing.JButton jButton_OrderMed;
     private javax.swing.JButton jButton_RemoveMed;
+    private javax.swing.JButton jButton_UpdateMed;
     private javax.swing.JButton jButton_ViewMed;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelClose;
