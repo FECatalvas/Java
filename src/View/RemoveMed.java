@@ -28,7 +28,7 @@ public class RemoveMed extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-                ResultSet rs;
+        ResultSet rs;
         PreparedStatement ps;
 
         String query = "SELECT * FROM `medicine`";
@@ -36,7 +36,7 @@ public class RemoveMed extends javax.swing.JFrame {
         try {
 
             ps = MyConnection.getConnection().prepareStatement(query);
-            DefaultTableModel model = (DefaultTableModel) jTable_medicineTable.getModel();
+            DefaultTableModel model = (DefaultTableModel)jTable_medicineTable.getModel();
             model.setRowCount(0);
 
             rs = ps.executeQuery();
@@ -54,7 +54,7 @@ public class RemoveMed extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(ViewMed.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,7 +70,7 @@ public class RemoveMed extends javax.swing.JFrame {
         jTable_medicineTable = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        jTextField_removeBN = new javax.swing.JTextField();
+        jTextField_remove = new javax.swing.JTextField();
         jButton_REMOVE = new javax.swing.JButton();
         jButton_CANCEL = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -111,11 +111,11 @@ public class RemoveMed extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setForeground(java.awt.Color.white);
-        jLabel1.setText("Enter Brand Name to Remove:");
+        jLabel1.setText("Enter ID to Remove:");
 
-        jTextField_removeBN.addActionListener(new java.awt.event.ActionListener() {
+        jTextField_remove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_removeBNActionPerformed(evt);
+                jTextField_removeActionPerformed(evt);
             }
         });
 
@@ -156,10 +156,10 @@ public class RemoveMed extends javax.swing.JFrame {
                 .addComponent(jButton_REMOVE, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(314, 314, 314))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(287, Short.MAX_VALUE)
+                .addContainerGap(294, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(36, 36, 36)
-                .addComponent(jTextField_removeBN, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField_remove, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(207, 207, 207))
         );
         jPanel3Layout.setVerticalGroup(
@@ -171,7 +171,7 @@ public class RemoveMed extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField_removeBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_remove, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(48, 48, 48)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -199,7 +199,6 @@ public class RemoveMed extends javax.swing.JFrame {
         });
 
         jLabel_Home.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel_Home.setIcon(new javax.swing.ImageIcon("Z:\\JAVA\\finalProject\\Java\\house.png")); // NOI18N
         jLabel_Home.setText("REMOVE MEDICINE");
         jLabel_Home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -212,25 +211,25 @@ public class RemoveMed extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel_Home)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelMin)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelClose)
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel_Home)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelClose)
-                        .addComponent(jLabelMin))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel_Home)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelClose)
+                    .addComponent(jLabelMin))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(jLabel_Home)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -242,9 +241,9 @@ public class RemoveMed extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -259,16 +258,44 @@ public class RemoveMed extends javax.swing.JFrame {
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jLabelMinMouseClicked
 
-    private void jTextField_removeBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_removeBNActionPerformed
+    private void jTextField_removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_removeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_removeBNActionPerformed
+    }//GEN-LAST:event_jTextField_removeActionPerformed
 
     private void jButton_REMOVEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_REMOVEMouseClicked
 
     }//GEN-LAST:event_jButton_REMOVEMouseClicked
 
     private void jButton_REMOVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_REMOVEActionPerformed
+        String medId =jTextField_remove.getText();
+   
 
+        if (medId.equals("")) {
+            JOptionPane.showMessageDialog(null, "Input an ID to remove");
+        }
+
+            PreparedStatement ps;
+            String query = "DELETE FROM `medicine` WHERE `medId` = ?";
+
+            try {
+                ps = MyConnection.getConnection().prepareStatement(query);
+
+                ps.setString(1, medId);
+                
+
+                if (ps.executeUpdate() > 0) {
+                    JOptionPane.showMessageDialog(null, "Medicine Removed!");
+
+                    this.dispose();
+                    ViewMed view  = new ViewMed();
+                    view.setVisible(true);
+                    view.pack();
+                    view.setLocationRelativeTo(null);
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(RegisterForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }//GEN-LAST:event_jButton_REMOVEActionPerformed
     private void jButton_CANCELMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_CANCELMouseClicked
         this.dispose();
@@ -336,6 +363,6 @@ public class RemoveMed extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable_medicineTable;
-    private javax.swing.JTextField jTextField_removeBN;
+    private javax.swing.JTextField jTextField_remove;
     // End of variables declaration//GEN-END:variables
 }

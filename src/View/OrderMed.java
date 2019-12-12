@@ -47,7 +47,8 @@ public class OrderMed extends javax.swing.JFrame {
                     rs.getString("genericName"),
                     rs.getString("brandName"),
                     rs.getString("medType"),
-                    rs.getDouble("price")};
+                    rs.getDouble("price"),
+                    rs.getInt("qtyStock")};
                     
                 model.addRow(table);
             }
@@ -102,7 +103,6 @@ public class OrderMed extends javax.swing.JFrame {
         });
 
         jLabel_Home.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel_Home.setIcon(new javax.swing.ImageIcon("Z:\\JAVA\\finalProject\\Java\\house.png")); // NOI18N
         jLabel_Home.setText("ORDER MEDICINE");
         jLabel_Home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -141,25 +141,25 @@ public class OrderMed extends javax.swing.JFrame {
         jTable_medicineTable.setBackground(new java.awt.Color(232, 236, 241));
         jTable_medicineTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Classification", "Generic Name", "Brand Name", "Medicine Type", "Price"
+                "ID", "Classification", "Generic Name", "Brand Name", "Medicine Type", "Price", "Quantity Stock"
             }
         ));
         jScrollPane1.setViewportView(jTable_medicineTable);
@@ -170,7 +170,7 @@ public class OrderMed extends javax.swing.JFrame {
 
         jLabel_Money.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel_Money.setForeground(java.awt.Color.white);
-        jLabel_Money.setText("Money:");
+        jLabel_Money.setText("Price:");
 
         jTextField_brandName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,15 +220,15 @@ public class OrderMed extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(30, 30, 30)
                         .addComponent(jTextField_brandName, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 257, Short.MAX_VALUE)
                         .addComponent(jLabel_Money)
                         .addGap(60, 60, 60)
                         .addComponent(jTextField_Money, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(49, 49, 49))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(374, 374, 374)
+                        .addGap(412, 412, 412)
                         .addComponent(jButton_CANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(143, 143, 143)
+                        .addGap(71, 71, 71)
                         .addComponent(jButton_ORDER, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -236,17 +236,18 @@ public class OrderMed extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel_Money)
-                    .addComponent(jTextField_Money)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextField_brandName)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jTextField_Money, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel_Money, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(68, 68, 68)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_ORDER, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -263,13 +264,10 @@ public class OrderMed extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(60, 60, 60)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -287,10 +285,6 @@ public class OrderMed extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_brandNameActionPerformed
 
-    private void jTextField_MoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_MoneyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_MoneyActionPerformed
-
     private void jButton_CANCELMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_CANCELMouseClicked
         this.dispose();
         UserDashboard home = new UserDashboard();
@@ -304,7 +298,7 @@ public class OrderMed extends javax.swing.JFrame {
         PreparedStatement ps;
         ResultSet rs;
         String brandName = jTextField_brandName.getText();
-        String money = jTextField_Money.getText();
+        String price = jTextField_Money.getText();
         
 
         String query = "SELECT * FROM `medicine` WHERE `brandName` =? AND `price` = ?";
@@ -313,17 +307,17 @@ public class OrderMed extends javax.swing.JFrame {
             ps = MyConnection.getConnection().prepareStatement(query);
 
             ps.setString(1, brandName);
-            ps.setString(2, money);
+            ps.setString(2, price);
 
             rs = ps.executeQuery();
 
             if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "Successfully Ordered!");
-                Last last = new Last();
-                last.setVisible(true);
-                last.pack();
-                last.setLocationRelativeTo(null);
-                last.setLocationRelativeTo(null);
+                JOptionPane.showMessageDialog(null, "Successfully Ordered!\nYour total payment is"  );
+                UserDashboard user = new UserDashboard();
+                user.setVisible(true);
+                user.pack();
+                user.setLocationRelativeTo(null);
+                user.setLocationRelativeTo(null);
 
                 this.dispose();
 
@@ -360,6 +354,10 @@ public class OrderMed extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_jLabel_HomeMouseClicked
+
+    private void jTextField_MoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_MoneyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_MoneyActionPerformed
 
     /**
      * @param args the command line arguments

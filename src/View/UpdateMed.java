@@ -116,7 +116,6 @@ public class UpdateMed extends javax.swing.JFrame {
         });
 
         jLabel_Home.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel_Home.setIcon(new javax.swing.ImageIcon("Z:\\JAVA\\finalProject\\Java\\house.png")); // NOI18N
         jLabel_Home.setText("UPDATE MEDICINE");
         jLabel_Home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -128,26 +127,27 @@ public class UpdateMed extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel_Home)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 731, Short.MAX_VALUE)
+                .addContainerGap(778, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelMin)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelClose)
-                .addContainerGap())
+                .addGap(20, 20, 20))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelClose)
-                        .addComponent(jLabelMin))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel_Home)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelClose)
+                    .addComponent(jLabelMin))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel_Home)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(34, 49, 63));
@@ -354,7 +354,7 @@ public class UpdateMed extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(jTextField_genericName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_CANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_UPDATE, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -372,7 +372,7 @@ public class UpdateMed extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(89, 89, 89)
+                .addGap(80, 80, 80)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -432,26 +432,27 @@ public class UpdateMed extends javax.swing.JFrame {
             }
 
             PreparedStatement ps;
-            String query = "UPDATE `medicine` SET(classification`, `brandName`, `genericName`, `medType`, `price`,`qtyStock`) VALUES (?,?,?,?,?,?)";
+            String query = "UPDATE `medicine` SET `classification` = '"+ classification +"',`genericName`='"+ genericName +"',`brandName`='"+ brandName +"',`medType`='"+ medType +"',`price`='"+ price +"',`qtyStock`='"+ qtyStock + " WHERE `medId` = " + medId;
 
             try {
                 ps = MyConnection.getConnection().prepareStatement(query);
-
-                ps.setString(1, classification);
-                ps.setString(2, brandName);
-                ps.setString(3, genericName);
-                ps.setString(4, medType);
-                ps.setString(5, price);
-                ps.setString(6, qtyStock);
+                
+                ps.setString(1,medId);
+                ps.setString(2, classification);
+                ps.setString(3, brandName);
+                ps.setString(4, genericName);
+                ps.setString(5, medType);
+                ps.setString(6, price);
+                ps.setString(7, qtyStock);
 
                 if (ps.executeUpdate() > 0) {
                     JOptionPane.showMessageDialog(null, "Medicine Updated!");
 
                     this.dispose();
-                    UpdateMed update = new UpdateMed();
-                    update.setVisible(true);
-                    update.pack();
-                    update.setLocationRelativeTo(null);
+                    ViewMed view = new ViewMed();
+                    view.setVisible(true);
+                    view.pack();
+                    view.setLocationRelativeTo(null);
                 
 
 }
