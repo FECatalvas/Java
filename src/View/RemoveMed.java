@@ -199,6 +199,7 @@ public class RemoveMed extends javax.swing.JFrame {
         });
 
         jLabel_Home.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel_Home.setIcon(new javax.swing.ImageIcon("C:\\Users\\2ndyrGroupB\\Documents\\NetBeansProjects\\Java\\house.png")); // NOI18N
         jLabel_Home.setText("REMOVE MEDICINE");
         jLabel_Home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -227,7 +228,7 @@ public class RemoveMed extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelClose)
                     .addComponent(jLabelMin))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel_Home)
                 .addContainerGap())
         );

@@ -102,7 +102,7 @@ public class ViewMed extends javax.swing.JFrame {
         });
 
         jLabel_Home.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel_Home.setIcon(new javax.swing.ImageIcon("Z:\\JAVA\\finalProject\\Java\\house.png")); // NOI18N
+        jLabel_Home.setIcon(new javax.swing.ImageIcon("C:\\Users\\2ndyrGroupB\\Documents\\NetBeansProjects\\Java\\house.png")); // NOI18N
         jLabel_Home.setText("VIEW MEDICINE");
         jLabel_Home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -131,9 +131,9 @@ public class ViewMed extends javax.swing.JFrame {
                         .addComponent(jLabelClose1)
                         .addComponent(jLabelMin1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(19, 19, 19)
                         .addComponent(jLabel_Home)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(34, 49, 63));
@@ -182,18 +182,18 @@ public class ViewMed extends javax.swing.JFrame {
                 .addComponent(jScrollPane1)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(510, Short.MAX_VALUE)
+                .addContainerGap(512, Short.MAX_VALUE)
                 .addComponent(jButton_OrderMed)
-                .addGap(441, 441, 441))
+                .addGap(439, 439, 439))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addComponent(jButton_OrderMed)
-                .addGap(29, 29, 29))
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -205,9 +205,9 @@ public class ViewMed extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
